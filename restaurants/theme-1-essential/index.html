@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Bite | Fresh & Fast</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e63946; /* Appetizing Red */
+            --bg-light: #f8f9fa;
+            --text-dark: #212529;
+            --text-muted: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .call-btn {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .call-btn:hover {
+            background-color: #c1121f;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #e9ecef;
+            margin-bottom: 20px;
+        }
+
+        /* Menu Section (Text Based) */
+        .menu-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .menu-category {
+            margin-bottom: 30px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .menu-category h3 {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .item-details h4 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .item-details p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .item-price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        /* Quick Info / Location */
+        .info-section {
+            background: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .info-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .direction-btn {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: #212529;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #212529;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">The Daily Bite</div>
+        <a href="tel:+917975281356" class="call-btn">📞 Call Now</a>
+    </header>
+
+    <section class="hero">
+        <h1>Fresh, Fast, Delicious.</h1>
+        <p>Your everyday craving sorted. Stop by or call for pickup.</p>
+    </section>
+
+    <section class="menu-container">
+        <h2 class="section-title">Our Menu</h2>
+
+        <div class="menu-category">
+            <h3>Quick Bites</h3>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h4>Crispy Veg Burger</h4>
+                    <p>Classic potato patty with house special sauce.</p>
+                </div>
+                <div class="item-price">₹89</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h4>Peri-Peri Fries</h4>
+                    <p>Crispy fries tossed in spicy peri-peri seasoning.</p>
+                </div>
+                <div class="item-price">₹110</div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Mains</h3>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h4>Paneer Tikka Wrap</h4>
+                    <p>Smoky grilled paneer wrapped with mint chutney.</p>
+                </div>
+                <div class="item-price">₹149</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h4>Desi Style Noodles</h4>
+                    <p>Street-style hakka noodles with fresh veggies.</p>
+                </div>
+                <div class="item-price">₹130</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <h3>Visit Us</h3>
+        <p>Shop 12, Food Street, Main Market, Bengaluru.</p>
+        <p style="margin-top: 10px; color: var(--text-muted);">Hours: 11:00 AM - 11:00 PM</p>
+        <a href="https://maps.google.com" target="_blank" class="direction-btn">📍 Get Directions</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 The Daily Bite. Built by GrowDesk.</p>
+    </footer>
+
+</body>
+</html>
