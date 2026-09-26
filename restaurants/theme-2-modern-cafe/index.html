@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Morning Brew | Modern Cafe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #d4a373; /* Warm Caramel/Beige */
+            --bg-color: #faf8f5; /* Off-white aesthetic */
+            --text-dark: #4a4036;
+            --accent-color: #8b7355;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: var(--bg-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+        }
+
+        .book-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .book-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70vh;
+            background: linear-gradient(rgba(250, 248, 245, 0.4), rgba(250, 248, 245, 0.9)), url('https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+        }
+
+        /* Visual Gallery Section */
+        .gallery-section {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .grid-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .item-label {
+            background: #fff;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        /* Clean Menu List */
+        .menu-section {
+            background-color: #fff;
+            padding: 80px 8%;
+            max-width: 900px;
+            margin: 0 auto 80px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+        }
+
+        .menu-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dashed #e0d5c1;
+            padding: 15px 0;
+        }
+
+        .menu-row:last-child {
+            border-bottom: none;
+        }
+
+        .dish-name {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .dish-desc {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .dish-price {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            header { padding: 15px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">The Morning Brew</div>
+        <a href="https://wa.me/917975281356" class="book-btn">Book a Table</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Fresh Bakes & <br> Handcrafted Coffee</h1>
+            <p>Experience the perfect blend of aesthetic vibes and soulful flavors.</p>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2 class="section-title">Our Favorites</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Latte Art">
+                <div class="item-label">Artisan Latte</div>
+            </div>
+            <div class="grid-item">
+                <img src="https://images.pexels.com/photos/3891543/pexels-photo-3891543.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Croissant">
+                <div class="item-label">Butter Croissant</div>
+            </div>
+            <div class="grid-item">
+                <img src="https://images.pexels.com/photos/103124/pexels-photo-103124.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Avocado Toast">
+                <div class="item-label">Avocado Toast</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <h2 class="section-title" style="text-align: center;">Classic Menu</h2>
+        
+        <div class="menu-row">
+            <div>
+                <div class="dish-name">Signature Cappuccino</div>
+                <div class="dish-desc">Rich espresso with creamy steamed milk</div>
+            </div>
+            <div class="dish-price">₹199</div>
+        </div>
+        
+        <div class="menu-row">
+            <div>
+                <div class="dish-name">Matcha Frappe</div>
+                <div class="dish-desc">Premium Japanese matcha blended with ice</div>
+            </div>
+            <div class="dish-price">₹249</div>
+        </div>
+        
+        <div class="menu-row">
+            <div>
+                <div class="dish-name">Truffle Mushroom Sandwich</div>
+                <div class="dish-desc">Grilled sourdough with wild mushrooms & cheese</div>
+            </div>
+            <div class="dish-price">₹299</div>
+        </div>
+    </section>
+
+    <footer>
+        <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 10px;">The Morning Brew</h3>
+        <p>12th Main Road, Indiranagar, Bengaluru</p>
+        <p style="margin-top: 15px;">&copy; 2026. Designed by GrowDesk.</p>
+    </footer>
+
+</body>
+</html>
