@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRAVE LABS | Interactive Cafe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-green: #ccff00;
+            --electric-purple: #7a00ff;
+            --dark-bg: #0a0a0a;
+            --text-light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, .logo {
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: transparent;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 35px;
+            color: var(--neon-green);
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0px var(--electric-purple);
+        }
+
+        .action-btn {
+            background-color: var(--neon-green);
+            color: var(--dark-bg);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 50px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            box-shadow: 4px 4px 0px var(--electric-purple);
+            transition: 0.2s;
+        }
+
+        .action-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--electric-purple);
+        }
+
+        /* Hero Section with Floating Elements */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at center, #1a1a1a 0%, var(--dark-bg) 100%);
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 8rem;
+            line-height: 0.9;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--text-light);
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 span {
+            color: var(--electric-purple);
+            -webkit-text-stroke: 0;
+            display: block;
+        }
+
+        /* 3D Floating Images */
+        .float-img {
+            position: absolute;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(122, 0, 255, 0.4);
+            border: 4px solid var(--neon-green);
+            animation: float 6s ease-in-out infinite;
+            z-index: 5;
+        }
+
+        .img-1 {
+            width: 250px; height: 250px;
+            top: 15%; left: 10%;
+            animation-delay: 0s;
+        }
+
+        .img-2 {
+            width: 300px; height: 300px;
+            bottom: -5%; right: 5%;
+            animation-delay: 2s;
+        }
+
+        .img-3 {
+            width: 180px; height: 180px;
+            top: 25%; right: 15%;
+            animation-delay: 1s;
+            border-color: var(--electric-purple);
+        }
+
+        /* Scrolling Marquee Tape */
+        .marquee-container {
+            background-color: var(--neon-green);
+            color: var(--dark-bg);
+            padding: 15px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            transform: rotate(-2deg);
+            margin-top: -20px;
+            position: relative;
+            z-index: 20;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .marquee-content {
+            display: inline-block;
+            font-family: 'Anton', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            animation: marquee 15s linear infinite;
+        }
+
+        /* Horizontal Scroll Menu */
+        .horizontal-section {
+            padding: 100px 0 100px 5%;
+        }
+
+        .section-title {
+            font-size: 4rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            padding-right: 5%;
+        }
+
+        .scroll-wrapper {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding-bottom: 40px;
+            padding-right: 5%;
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .scroll-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .menu-card {
+            min-width: 350px;
+            background: #111;
+            border: 2px solid #333;
+            border-radius: 20px;
+            padding: 20px;
+            scroll-snap-align: start;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        .menu-card:hover {
+            border-color: var(--neon-green);
+            transform: translateY(-10px) rotate(2deg);
+            background: var(--electric-purple);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .menu-card h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .menu-card p {
+            font-size: 1rem;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .menu-card:hover p {
+            color: #fff;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: var(--neon-green);
+            color: var(--dark-bg);
+            font-weight: 800;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            background: #050505;
+        }
+
+        footer h2 {
+            font-size: 3rem;
+            color: var(--electric-purple);
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 4rem; }
+            .img-1 { width: 150px; height: 150px; }
+            .img-2 { width: 200px; height: 200px; }
+            .img-3 { display: none; }
+            .menu-card { min-width: 280px; }
+            .action-btn { padding: 10px 20px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">CRAVE LABS</div>
+        <a href="https://wa.me/917975281356" class="action-btn">Hit Us Up</a>
+    </header>
+
+    <section class="hero">
+        <!-- Floating 3D Elements -->
+        <img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=800" class="float-img img-1" alt="Burger">
+        <img src="https://images.pexels.com/photos/1146760/pexels-photo-1146760.jpeg?auto=compress&cs=tinysrgb&w=800" class="float-img img-2" alt="Pizza">
+        <img src="https://images.pexels.com/photos/3727250/pexels-photo-3727250.jpeg?auto=compress&cs=tinysrgb&w=800" class="float-img img-3" alt="Shake">
+        
+        <h1>BITE INTO <br><span>THE FUTURE</span></h1>
+    </section>
+
+    <!-- Scrolling Tape -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            🔥 DROP 01 OUT NOW // CRAZY FLAVORS // 100% VEGAN OPTIONS // OPEN TILL 3 AM 🔥 DROP 01 OUT NOW // CRAZY FLAVORS // 100% VEGAN OPTIONS // OPEN TILL 3 AM 🔥
+        </div>
+    </div>
+
+    <!-- Horizontal Scroll Menu -->
+    <section class="horizontal-section">
+        <h2 class="section-title">TRENDING NOW</h2>
+        
+        <div class="scroll-wrapper">
+            <!-- Card 1 -->
+            <div class="menu-card">
+                <img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Smash Burger">
+                <h3>NEON SMASH</h3>
+                <p>Double beef patty, secret radioactive sauce, caramelized onions.</p>
+                <div class="price-tag">₹349</div>
+            </div>
+            <!-- Card 2 -->
+            <div class="menu-card">
+                <img src="https://images.pexels.com/photos/3727250/pexels-photo-3727250.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Shake">
+                <h3>PURPLE HAZE</h3>
+                <p>Blueberry cheesecake milkshake topped with cotton candy.</p>
+                <div class="price-tag">₹299</div>
+            </div>
+            <!-- Card 3 -->
+            <div class="menu-card">
+                <img src="https://images.pexels.com/photos/1146760/pexels-photo-1146760.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pizza">
+                <h3>TRUFFLE CRUST</h3>
+                <p>Wood-fired base, wild mushrooms, truffle oil, and burrata.</p>
+                <div class="price-tag">₹599</div>
+            </div>
+            <!-- Card 4 -->
+            <div class="menu-card">
+                <img src="https://images.pexels.com/photos/2087748/pexels-photo-2087748.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Tacos">
+                <h3>CYBER TACOS</h3>
+                <p>Crispy shell, pulled jackfruit, spicy neon salsa.</p>
+                <div class="price-tag">₹249</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2>CRAVE LABS</h2>
+        <p style="color: #666; font-size: 1.1rem; margin-bottom: 10px;">Sector 4, HSR Layout, Bengaluru</p>
+        <p style="color: #444; font-size: 0.8rem; text-transform: uppercase;">Powered by GrowDesk Technologies</p>
+    </footer>
+
+</body>
+</html>
