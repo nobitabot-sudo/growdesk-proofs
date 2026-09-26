@@ -17,64 +17,82 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; scroll-behavior: smooth; }
 
-        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
+        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         
         .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
 
         /* 1. GROWDESK INFO (HERO) */
-        .hero { text-align: center; padding: 100px 20px 60px; background: radial-gradient(circle at top, #1a1a2e, var(--bg-dark)); border-bottom: 1px solid #222; }
-        .hero h1 { font-size: 4rem; font-weight: 800; letter-spacing: 2px; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
-        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; }
+        .hero { text-align: center; padding: 10vh 20px 8vh; background: radial-gradient(circle at top, #1a1a2e, var(--bg-dark)); border-bottom: 1px solid #222; }
+        
+        /* Fluid typography: auto-scales between 2.5rem (mobile) and 4.5rem (PC) */
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; letter-spacing: 2px; background: linear-gradient(to right, #ffffff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; line-height: 1.1; }
+        
+        .hero p { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--text-muted); max-width: 700px; margin: 0 auto; padding: 0 10px; }
 
         /* 2. SERVICE INDEX */
         .index-section { text-align: center; padding: 60px 20px; border-bottom: 1px solid #222; background-color: #0a0a0f; }
-        .index-section h2 { font-size: 2rem; margin-bottom: 10px; }
-        .index-section p { color: var(--text-muted); margin-bottom: 30px; }
+        .index-section h2 { font-size: clamp(1.8rem, 4vw, 2.2rem); margin-bottom: 10px; }
+        .index-section p { color: var(--text-muted); margin-bottom: 35px; font-size: 0.95rem; }
         
         .service-nav { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; max-width: 900px; margin: 0 auto; }
-        .nav-btn { background: var(--card-bg); color: var(--text-main); padding: 15px 25px; border-radius: 12px; text-decoration: none; font-weight: 600; border: 1px solid #333; transition: 0.3s; display: flex; align-items: center; gap: 10px; }
-        .nav-btn:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(99,102,241,0.2); }
+        .nav-btn { background: var(--card-bg); color: var(--text-main); padding: 14px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; border: 1px solid #333; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 0.95rem; }
+        .nav-btn:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(99,102,241,0.15); }
 
         /* 3. SERVICE SECTIONS */
         .service-section { padding-top: 80px; margin-bottom: 40px; }
         .service-header { margin-bottom: 40px; border-left: 4px solid var(--primary); padding-left: 20px; }
-        .service-header h2 { font-size: 2.5rem; color: #fff; margin-bottom: 10px; }
-        .service-header p { color: var(--text-muted); font-size: 1.1rem; }
+        .service-header h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); color: #fff; margin-bottom: 10px; line-height: 1.2; }
+        .service-header p { color: var(--text-muted); font-size: clamp(0.95rem, 2vw, 1.1rem); max-width: 800px; }
         
         /* Website Themes Grid */
-        .theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px; }
         .theme-card { background-color: var(--card-bg); border-radius: 16px; overflow: hidden; border: 1px solid #2a2a35; transition: 0.3s; display: flex; flex-direction: column; }
-        .theme-card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(99,102,241,0.15); border-color: var(--primary); }
+        .theme-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(99,102,241,0.12); border-color: var(--primary); }
         .card-img { width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid #2a2a35; }
         .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-        .theme-title { font-size: 1.4rem; font-weight: 600; margin-bottom: 8px; }
-        .theme-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
+        .theme-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 8px; }
+        .theme-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1; }
         .price-box { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-top: 15px; border-top: 1px dashed #333; }
-        .price { color: var(--accent); font-size: 1.4rem; font-weight: 800; }
-        .btn-demo { display: block; text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 600; background-color: rgba(99, 102, 241, 0.1); color: var(--primary); border: 1px solid var(--primary); transition: 0.2s; }
+        .price { color: var(--accent); font-size: 1.3rem; font-weight: 800; }
+        .btn-demo { display: block; text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 600; background-color: rgba(99, 102, 241, 0.1); color: var(--primary); border: 1px solid var(--primary); transition: 0.2s; font-size: 0.95rem; }
         .btn-demo:hover { background-color: var(--primary); color: #fff; }
 
         /* Add-ons Grid */
-        .addons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .addon-card { background-color: var(--card-bg); border: 1px solid #2a2a35; padding: 20px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; }
-        .addon-info h4 { font-size: 1.1rem; margin-bottom: 5px; }
+        .addons-title { margin-bottom: 20px; color: var(--text-muted); font-size: 1.1rem; }
+        .addons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .addon-card { background-color: var(--card-bg); border: 1px solid #2a2a35; padding: 20px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
+        .addon-card:hover { border-color: #444; background-color: #1a1a20; }
+        .addon-info h4 { font-size: 1.05rem; margin-bottom: 5px; }
         .addon-info p { color: var(--text-muted); font-size: 0.85rem; }
-        .addon-price { color: var(--primary); font-weight: 800; font-size: 1.2rem; }
+        .addon-price { color: var(--primary); font-weight: 800; font-size: 1.1rem; }
 
         /* Future Services Placeholder */
-        .locked-service { background: repeating-linear-gradient(45deg, #121217, #121217 10px, #1a1a24 10px, #1a1a24 20px); border: 1px dashed #444; padding: 40px; text-align: center; border-radius: 16px; margin-bottom: 30px; opacity: 0.7; }
-        .locked-service h3 { color: #fff; margin-bottom: 10px; font-size: 1.5rem; }
+        .locked-service { background: repeating-linear-gradient(45deg, #121217, #121217 10px, #1a1a24 10px, #1a1a24 20px); border: 1px dashed #444; padding: 40px 20px; text-align: center; border-radius: 16px; margin-bottom: 30px; opacity: 0.8; }
+        .locked-service h3 { color: #fff; margin-bottom: 10px; font-size: clamp(1.2rem, 3vw, 1.5rem); }
+        .locked-service p { font-size: 0.95rem; }
 
-        footer { text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid #222; margin-top: 50px; }
+        footer { text-align: center; padding: 40px 20px; color: var(--text-muted); border-top: 1px solid #222; margin-top: 20px; font-size: 0.9rem; }
+
+        /* MOBILE SPECIFIC ADJUSTMENTS */
+        @media (max-width: 600px) {
+            .service-nav { flex-direction: column; align-items: stretch; padding: 0 10px; }
+            .nav-btn { padding: 16px; font-size: 1rem; }
+            .service-header { padding-left: 15px; border-left-width: 3px; }
+            .addon-card { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .addon-price { align-self: flex-start; }
+            .container { padding: 40px 15px; }
+        }
     </style>
 </head>
 <body>
 
+    <!-- 1. GROWDESK INFO -->
     <header class="hero">
         <h1>GROWDESK</h1>
         <p>Your complete technology partner for Restaurants, Cafes, and Premium Lounges. We build digital systems that increase footfall and automate operations.</p>
     </header>
 
+    <!-- 2. SERVICE INDEX -->
     <section class="index-section">
         <h2>Our Solutions Index</h2>
         <p>Explore our ecosystem of restaurant technology services.</p>
@@ -88,6 +106,7 @@
 
     <div class="container">
         
+        <!-- SERVICE 1: WEBSITES -->
         <section id="service-websites" class="service-section">
             <div class="service-header">
                 <h2>Service 1: Premium Digital Storefronts</h2>
@@ -96,7 +115,7 @@
             
             <div class="theme-grid">
                 <div class="theme-card">
-                    <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img">
+                    <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="The Essential Menu">
                     <div class="card-content">
                         <h3 class="theme-title">The Essential Menu</h3>
                         <p class="theme-desc">Clean, fast, and to-the-point single page scroll. Perfect for quick walk-ins and local cafes.</p>
@@ -108,7 +127,7 @@
                 </div>
 
                 <div class="theme-card">
-                    <img src="https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img">
+                    <img src="https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="The Modern Cafe">
                     <div class="card-content">
                         <h3 class="theme-title">The Modern Cafe</h3>
                         <p class="theme-desc">Bright aesthetic with pastel colors. Highly Instagrammable design best for aesthetic bakeries.</p>
@@ -120,7 +139,7 @@
                 </div>
 
                 <div class="theme-card">
-                    <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img">
+                    <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="The Heritage Kitchen">
                     <div class="card-content">
                         <h3 class="theme-title">The Heritage Kitchen</h3>
                         <p class="theme-desc">Warm tones and royal typography. Authentic design for traditional diners and family restaurants.</p>
@@ -132,7 +151,7 @@
                 </div>
 
                 <div class="theme-card">
-                    <img src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img">
+                    <img src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="The Cinematic Lounge">
                     <div class="card-content">
                         <h3 class="theme-title">The Cinematic Lounge</h3>
                         <p class="theme-desc">Dark mode, luxury animations, and high-end elegance. Built for fine-dining and premium bars.</p>
@@ -144,7 +163,7 @@
                 </div>
 
                 <div class="theme-card" style="border-color: #ccff00;">
-                    <img src="https://images.pexels.com/photos/3727250/pexels-photo-3727250.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img">
+                    <img src="https://images.pexels.com/photos/3727250/pexels-photo-3727250.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="The Interactive 3D">
                     <div class="card-content">
                         <h3 class="theme-title">The Interactive 3D</h3>
                         <p class="theme-desc">Horizontal scrolling, floating elements, and modern vibes. For trendy dine-in cloud kitchens.</p>
@@ -156,7 +175,7 @@
                 </div>
             </div>
 
-            <h4 style="margin-bottom: 20px; color: var(--text-muted); font-size: 1.2rem;">Optional Theme Add-Ons:</h4>
+            <h4 class="addons-title">Optional Theme Add-Ons:</h4>
             <div class="addons-grid">
                 <div class="addon-card">
                     <div class="addon-info">
@@ -189,6 +208,7 @@
             </div>
         </section>
 
+        <!-- SERVICE 2: WHATSAPP BOT -->
         <section id="service-whatsapp" class="service-section">
             <div class="service-header">
                 <h2>Service 2: WhatsApp AI Automation</h2>
@@ -196,10 +216,11 @@
             </div>
             <div class="locked-service">
                 <h3>🤖 Live WhatsApp Bot Demo Uploading Soon...</h3>
-                <p style="color: #666;">Stay tuned for the interactive testing number.</p>
+                <p style="color: #888;">Stay tuned for the interactive testing number.</p>
             </div>
         </section>
 
+        <!-- SERVICE 3: SMART QR -->
         <section id="service-qr" class="service-section">
             <div class="service-header">
                 <h2>Service 3: Smart Table-Top QR</h2>
@@ -210,6 +231,7 @@
             </div>
         </section>
         
+        <!-- SERVICE 4: CRM -->
         <section id="service-crm" class="service-section">
             <div class="service-header">
                 <h2>Service 4: Custom CRM Dashboard</h2>
