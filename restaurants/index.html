@@ -64,7 +64,7 @@
         .addon-price { color: var(--primary); font-weight: 800; font-size: 1.1rem; }
 
         /* PRESENTATION PANELS */
-        .presentation-panel { background-color: var(--card-bg); border: 1px solid #2a2a35; border-radius: 20px; padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        .presentation-panel { background-color: var(--card-bg); border: 1px solid #2a2a35; border-radius: 20px; padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; box-shadow: 0 10px 40px rgba(0,0,0,0.2); margin-bottom: 40px; }
         .panel-content { flex: 1; min-width: 300px; }
         .panel-content h3 { font-size: clamp(1.8rem, 4vw, 2.2rem); margin-bottom: 15px; color: #fff; }
         .panel-content p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 25px; }
@@ -106,7 +106,7 @@
             .addon-price { align-self: flex-start; }
             .container { padding: 40px 15px; }
 
-            .presentation-panel { padding: 25px 20px; gap: 30px; }
+            .presentation-panel { padding: 25px 20px; gap: 30px; margin-bottom: 30px; }
             .panel-content { min-width: 100%; order: 2; }
             .panel-visual { min-width: 100%; margin-top: 10px; order: 1; }
             .btn-action, .btn-whatsapp { width: 100%; text-align: center; padding: 16px; font-size: 1.05rem; }
@@ -114,9 +114,9 @@
             .floating-badge { position: relative; bottom: 0; left: 0; top: 0; right: 0; margin: -20px auto 20px; border-radius: 15px; max-width: 90%; text-align: center; }
             .specs-grid { grid-template-columns: 1fr; gap: 10px; }
             
-            #service-whatsapp .panel-content, #service-crm .panel-content { order: 1; }
-            #service-whatsapp .panel-visual, #service-crm .panel-visual { order: 2; margin-top: 20px; }
-            #service-whatsapp .floating-badge, #service-crm .floating-badge { margin: -30px auto 0; }
+            #service-whatsapp .panel-content, .crm-panel .panel-content { order: 1; }
+            #service-whatsapp .panel-visual, .crm-panel .panel-visual { order: 2; margin-top: 20px; }
+            #service-whatsapp .floating-badge, .crm-panel .floating-badge { margin: -30px auto 0; }
         }
     </style>
 </head>
@@ -135,8 +135,7 @@
         <div class="service-nav">
             <a href="#service-websites" class="nav-btn">🌐 Premium Websites</a>
             <a href="#service-whatsapp" class="nav-btn">🤖 WhatsApp AI Bot</a>
-            <a href="#service-qr" class="nav-btn">📱 Table-Top QR</a>
-            <a href="#service-crm" class="nav-btn">💻 Custom CRM</a>
+            <a href="#service-qr-crm" class="nav-btn">📱 Smart QR & CRM</a>
             <a href="#service-marketing" class="nav-btn">🚀 Digital Marketing</a>
         </div>
     </section>
@@ -245,13 +244,14 @@
             </div>
         </section>
 
-        <!-- SERVICE 3: SMART QR -->
-        <section id="service-qr" class="service-section">
+        <!-- SERVICE 3: SMART QR + CRM SYSTEM -->
+        <section id="service-qr-crm" class="service-section">
             <div class="service-header">
-                <h2>Service 3: Smart Table-Ordering QR</h2>
-                <p>Upgrade your VIP dine-in experience. Every table gets a unique QR code. Guests scan, customize their orders, and the kitchen gets instantly notified with the exact table number.</p>
+                <h2>Service 3: Smart QR & CRM Dashboard</h2>
+                <p>Upgrade your VIP dine-in experience. We provide custom table QRs linked directly to a powerful live tracking dashboard for your reception and kitchen.</p>
             </div>
             
+            <!-- Frontend: QR Point -->
             <div class="presentation-panel">
                 <div class="panel-visual">
                     <img src="https://images.pexels.com/photos/7633398/pexels-photo-7633398.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Scanning QR Code at Table">
@@ -261,8 +261,8 @@
                 </div>
 
                 <div class="panel-content">
-                    <h3>Table-Specific Routing 🍽️</h3>
-                    <p>We completely eliminate order mistakes. We place custom acrylic stands at every table, mapped to a powerful backend. Guests have full control over what they order and exactly how they want it prepared.</p>
+                    <h3>The Customer Frontend: Smart QR 🍽️</h3>
+                    <p>We place custom acrylic stands at every table, mapped to our backend. Guests have full control over what they order and exactly how they want it prepared, eliminating waiter errors.</p>
                     
                     <div class="specs-grid">
                         <div class="spec-box">
@@ -271,37 +271,32 @@
                         </div>
                         <div class="spec-box">
                             <h4>✍️ Smart Customizations</h4>
-                            <p>Guests can easily add instructions like "1 by 2 soup" or "Less Spicy" before sending the order.</p>
+                            <p>Guests can easily add instructions like "1 by 2 soup" or "Less Spicy".</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- SERVICE 4: CRM DASHBOARD -->
-        <section id="service-crm" class="service-section">
-            <div class="service-header">
-                <h2>Service 4: Custom CRM Dashboard</h2>
-                <p>Track everything in one place. A fast, custom-built backend admin panel to monitor table orders, reservations, and customer analytics in real-time.</p>
-            </div>
-            
-            <div class="presentation-panel">
+
+            <!-- Backend: CRM Dashboard -->
+            <div class="presentation-panel crm-panel">
                 <div class="panel-content">
-                    <h3>The Restaurant Brain 💻</h3>
-                    <p>Say goodbye to messy paper registers. We build a secure, Python-powered dashboard where your reception and kitchen can track live orders and access customer history instantly.</p>
+                    <h3>The Restaurant Backend: Live CRM 💻</h3>
+                    <p>Say goodbye to messy paper registers. Customized orders and requests are sent instantly to a secure, fast, custom-built dashboard where your staff can track live operations.</p>
                     
                     <div class="specs-grid">
                         <div class="spec-box">
                             <h4>📊 Live Order Tracking</h4>
-                            <p>See which tables are currently active and what they ordered.</p>
+                            <p>See which tables are currently active and monitor kitchen load instantly.</p>
                         </div>
                         <div class="spec-box">
                             <h4>👥 Customer Database</h4>
-                            <p>Auto-save details of VIP guests for future marketing campaigns.</p>
+                            <p>Auto-save details of VIP guests for future retargeting campaigns.</p>
                         </div>
                     </div>
                     
-                    <a href="#" class="btn-action">▶ Watch Dashboard Demo</a>
+                    <div style="display: inline-block; background: rgba(99, 102, 241, 0.1); border: 1px solid var(--primary); color: #fff; padding: 12px 25px; border-radius: 8px; font-weight: 600;">
+                        Full System Setup (QR + CRM) starts at <span style="color: var(--accent);">₹19,999</span>
+                    </div>
                 </div>
 
                 <div class="panel-visual">
@@ -313,10 +308,10 @@
             </div>
         </section>
 
-        <!-- SERVICE 5: DIGITAL MARKETING -->
+        <!-- SERVICE 4: DIGITAL MARKETING -->
         <section id="service-marketing" class="service-section">
             <div class="service-header">
-                <h2>Service 5: Digital Identity & Ads</h2>
+                <h2>Service 4: Digital Identity & Ads</h2>
                 <p>We don't just build your digital systems; we ensure people actually use them. Full-stack social media management and targeted ads to keep your tables full.</p>
             </div>
             
