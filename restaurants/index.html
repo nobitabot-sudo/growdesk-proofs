@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GrowDesk | Restaurant & Cafe Solutions</title>
+    <title>GrowDesk | Restaurant Tech Solutions</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-dark: #070709;
             --card-bg: #121217;
-            --primary: #6366f1;
-            --accent: #22c55e;
+            --primary: #6366f1; /* Indigo */
+            --accent: #22c55e; /* Green */
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
         }
@@ -19,15 +19,27 @@
 
         body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
         
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px 80px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
 
-        /* GROWDESK HERO */
-        .hero { text-align: center; padding: 80px 20px 60px; background: radial-gradient(circle at top, #1a1a2e, var(--bg-dark)); border-bottom: 1px solid #222; }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: 2px; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
-        .hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; }
+        /* 1. GROWDESK INFO (HERO) */
+        .hero { text-align: center; padding: 100px 20px 60px; background: radial-gradient(circle at top, #1a1a2e, var(--bg-dark)); border-bottom: 1px solid #222; }
+        .hero h1 { font-size: 4rem; font-weight: 800; letter-spacing: 2px; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; }
 
-        /* SERVICE SECTION */
-        .service-title { font-size: 1.8rem; margin-bottom: 30px; color: #fff; display: inline-block; border-bottom: 2px solid var(--primary); padding-bottom: 5px; }
+        /* 2. SERVICE INDEX */
+        .index-section { text-align: center; padding: 60px 20px; border-bottom: 1px solid #222; background-color: #0a0a0f; }
+        .index-section h2 { font-size: 2rem; margin-bottom: 10px; }
+        .index-section p { color: var(--text-muted); margin-bottom: 30px; }
+        
+        .service-nav { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; max-width: 900px; margin: 0 auto; }
+        .nav-btn { background: var(--card-bg); color: var(--text-main); padding: 15px 25px; border-radius: 12px; text-decoration: none; font-weight: 600; border: 1px solid #333; transition: 0.3s; display: flex; align-items: center; gap: 10px; }
+        .nav-btn:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(99,102,241,0.2); }
+
+        /* 3. SERVICE SECTIONS */
+        .service-section { padding-top: 80px; margin-bottom: 40px; }
+        .service-header { margin-bottom: 40px; border-left: 4px solid var(--primary); padding-left: 20px; }
+        .service-header h2 { font-size: 2.5rem; color: #fff; margin-bottom: 10px; }
+        .service-header p { color: var(--text-muted); font-size: 1.1rem; }
         
         /* Website Themes Grid */
         .theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 60px; }
@@ -43,143 +55,175 @@
         .btn-demo:hover { background-color: var(--primary); color: #fff; }
 
         /* Add-ons Grid */
-        .addons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 80px; }
+        .addons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .addon-card { background-color: var(--card-bg); border: 1px solid #2a2a35; padding: 20px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; }
         .addon-info h4 { font-size: 1.1rem; margin-bottom: 5px; }
         .addon-info p { color: var(--text-muted); font-size: 0.85rem; }
         .addon-price { color: var(--primary); font-weight: 800; font-size: 1.2rem; }
 
-        /* Upcoming Services */
+        /* Future Services Placeholder */
         .locked-service { background: repeating-linear-gradient(45deg, #121217, #121217 10px, #1a1a24 10px, #1a1a24 20px); border: 1px dashed #444; padding: 40px; text-align: center; border-radius: 16px; margin-bottom: 30px; opacity: 0.7; }
-        .locked-service h3 { color: #fff; margin-bottom: 10px; }
+        .locked-service h3 { color: #fff; margin-bottom: 10px; font-size: 1.5rem; }
 
-        footer { text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid #222; margin-top: 20px; }
+        footer { text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid #222; margin-top: 50px; }
     </style>
 </head>
 <body>
 
     <header class="hero">
         <h1>GROWDESK</h1>
-        <p>Premium Digital Storefronts, AI Automation, and Smart Operations designed exclusively for Restaurants, Cafes, and Lounges.</p>
+        <p>Your complete technology partner for Restaurants, Cafes, and Premium Lounges. We build digital systems that increase footfall and automate operations.</p>
     </header>
 
-    <section class="container">
-        
-        <!-- SERVICE 1: WEBSITES -->
-        <h2 class="service-title">Service 1: Premium Digital Storefronts</h2>
-        
-        <div class="theme-grid">
-            <div class="theme-card">
-                <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img">
-                <div class="card-content">
-                    <h3 class="theme-title">The Essential Menu</h3>
-                    <p class="theme-desc">Clean, fast, and to-the-point single page scroll. Perfect for quick walk-ins and local cafes.</p>
-                    <div class="price-box">
-                        <span class="price">₹8,999</span>
-                    </div>
-                    <a href="theme-1-essential/" target="_blank" class="btn-demo">View Live Demo</a>
-                </div>
-            </div>
-
-            <div class="theme-card">
-                <img src="https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img">
-                <div class="card-content">
-                    <h3 class="theme-title">The Modern Cafe</h3>
-                    <p class="theme-desc">Bright aesthetic with pastel colors. Highly Instagrammable design best for aesthetic bakeries.</p>
-                    <div class="price-box">
-                        <span class="price">₹12,999</span>
-                    </div>
-                    <a href="theme-2-modern-cafe/" target="_blank" class="btn-demo">View Live Demo</a>
-                </div>
-            </div>
-
-            <div class="theme-card">
-                <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img">
-                <div class="card-content">
-                    <h3 class="theme-title">The Heritage Kitchen</h3>
-                    <p class="theme-desc">Warm tones and royal typography. Authentic design for traditional diners and family restaurants.</p>
-                    <div class="price-box">
-                        <span class="price">₹15,999</span>
-                    </div>
-                    <a href="theme-3-heritage-kitchen/" target="_blank" class="btn-demo">View Live Demo</a>
-                </div>
-            </div>
-
-            <div class="theme-card">
-                <img src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img">
-                <div class="card-content">
-                    <h3 class="theme-title">The Cinematic Lounge</h3>
-                    <p class="theme-desc">Dark mode, luxury animations, and high-end elegance. Built for fine-dining and premium bars.</p>
-                    <div class="price-box">
-                        <span class="price">₹18,999</span>
-                    </div>
-                    <a href="theme-4-cinematic/" target="_blank" class="btn-demo">View Live Demo</a>
-                </div>
-            </div>
-
-            <div class="theme-card" style="border-color: #ccff00;">
-                <img src="https://images.pexels.com/photos/3727250/pexels-photo-3727250.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img">
-                <div class="card-content">
-                    <h3 class="theme-title">The Interactive 3D <span style="font-size: 0.6rem; background: #ccff00; color: #000; padding: 3px 6px; border-radius: 4px; vertical-align: middle;">POPULAR</span></h3>
-                    <p class="theme-desc">Horizontal scrolling, floating elements, and modern vibes. For trendy dine-in cloud kitchens.</p>
-                    <div class="price-box">
-                        <span class="price">₹24,999</span>
-                    </div>
-                    <a href="theme-5-interactive/" target="_blank" class="btn-demo" style="background: #ccff00; color: #000; border-color: #ccff00;">View Live Demo</a>
-                </div>
-            </div>
+    <section class="index-section">
+        <h2>Our Solutions Index</h2>
+        <p>Explore our ecosystem of restaurant technology services.</p>
+        <div class="service-nav">
+            <a href="#service-websites" class="nav-btn">🌐 Premium Websites</a>
+            <a href="#service-whatsapp" class="nav-btn">🤖 WhatsApp AI Bot</a>
+            <a href="#service-qr" class="nav-btn">📱 Table-Top QR</a>
+            <a href="#service-crm" class="nav-btn">💻 Custom CRM</a>
         </div>
-
-        <!-- ADD-ONS -->
-        <h4 style="margin-bottom: 20px; color: var(--text-muted);">Optional Upgrades for Websites:</h4>
-        <div class="addons-grid">
-            <div class="addon-card">
-                <div class="addon-info">
-                    <h4>WhatsApp Table Reservation</h4>
-                    <p>Direct chat for instant bookings</p>
-                </div>
-                <div class="addon-price" style="color: var(--accent);">Included</div>
-            </div>
-            <div class="addon-card">
-                <div class="addon-info">
-                    <h4>Party/Event Booking Form</h4>
-                    <p>Data directly to your email</p>
-                </div>
-                <div class="addon-price">+ ₹3,000</div>
-            </div>
-            <div class="addon-card">
-                <div class="addon-info">
-                    <h4>Dynamic Photo Gallery</h4>
-                    <p>Masonry grid for food & ambience</p>
-                </div>
-                <div class="addon-price">+ ₹4,000</div>
-            </div>
-            <div class="addon-card">
-                <div class="addon-info">
-                    <h4>Multi-Page Expansion</h4>
-                    <p>About Us, Contact, and Policies</p>
-                </div>
-                <div class="addon-price">+ ₹6,000</div>
-            </div>
-        </div>
-
-        <!-- UPCOMING SERVICES -->
-        <h2 class="service-title" style="border-color: #888; color: #888;">Service 2: WhatsApp AI Automation</h2>
-        <div class="locked-service">
-            <h3 style="color: #888;">🤖 Smart Bot Demos Uploading Soon...</h3>
-            <p style="color: #666;">Interactive PDF Menus & Auto-booking flows directly on WhatsApp.</p>
-        </div>
-
-        <h2 class="service-title" style="border-color: #888; color: #888; margin-top: 20px;">Service 3: Table-Top QR Menus</h2>
-        <div class="locked-service">
-            <h3 style="color: #888;">📱 Acrylic QR Setup Demos Uploading Soon...</h3>
-            <p style="color: #666;">Physical QR stands linking to your digital storefront.</p>
-        </div>
-
     </section>
 
+    <div class="container">
+        
+        <section id="service-websites" class="service-section">
+            <div class="service-header">
+                <h2>Service 1: Premium Digital Storefronts</h2>
+                <p>High-end websites designed specifically to maximize dine-in footfall and VIP table reservations. Choose a theme that matches your brand vibe.</p>
+            </div>
+            
+            <div class="theme-grid">
+                <div class="theme-card">
+                    <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img">
+                    <div class="card-content">
+                        <h3 class="theme-title">The Essential Menu</h3>
+                        <p class="theme-desc">Clean, fast, and to-the-point single page scroll. Perfect for quick walk-ins and local cafes.</p>
+                        <div class="price-box">
+                            <span class="price">₹8,999</span>
+                        </div>
+                        <a href="theme-1-essential/" target="_blank" class="btn-demo">View Live Demo</a>
+                    </div>
+                </div>
+
+                <div class="theme-card">
+                    <img src="https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img">
+                    <div class="card-content">
+                        <h3 class="theme-title">The Modern Cafe</h3>
+                        <p class="theme-desc">Bright aesthetic with pastel colors. Highly Instagrammable design best for aesthetic bakeries.</p>
+                        <div class="price-box">
+                            <span class="price">₹12,999</span>
+                        </div>
+                        <a href="theme-2-modern-cafe/" target="_blank" class="btn-demo">View Live Demo</a>
+                    </div>
+                </div>
+
+                <div class="theme-card">
+                    <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img">
+                    <div class="card-content">
+                        <h3 class="theme-title">The Heritage Kitchen</h3>
+                        <p class="theme-desc">Warm tones and royal typography. Authentic design for traditional diners and family restaurants.</p>
+                        <div class="price-box">
+                            <span class="price">₹15,999</span>
+                        </div>
+                        <a href="theme-3-heritage-kitchen/" target="_blank" class="btn-demo">View Live Demo</a>
+                    </div>
+                </div>
+
+                <div class="theme-card">
+                    <img src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img">
+                    <div class="card-content">
+                        <h3 class="theme-title">The Cinematic Lounge</h3>
+                        <p class="theme-desc">Dark mode, luxury animations, and high-end elegance. Built for fine-dining and premium bars.</p>
+                        <div class="price-box">
+                            <span class="price">₹18,999</span>
+                        </div>
+                        <a href="theme-4-cinematic/" target="_blank" class="btn-demo">View Live Demo</a>
+                    </div>
+                </div>
+
+                <div class="theme-card" style="border-color: #ccff00;">
+                    <img src="https://images.pexels.com/photos/3727250/pexels-photo-3727250.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img">
+                    <div class="card-content">
+                        <h3 class="theme-title">The Interactive 3D</h3>
+                        <p class="theme-desc">Horizontal scrolling, floating elements, and modern vibes. For trendy dine-in cloud kitchens.</p>
+                        <div class="price-box">
+                            <span class="price">₹24,999</span>
+                        </div>
+                        <a href="theme-5-interactive/" target="_blank" class="btn-demo" style="background: #ccff00; color: #000; border-color: #ccff00;">View Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <h4 style="margin-bottom: 20px; color: var(--text-muted); font-size: 1.2rem;">Optional Theme Add-Ons:</h4>
+            <div class="addons-grid">
+                <div class="addon-card">
+                    <div class="addon-info">
+                        <h4>WhatsApp Table Reservation</h4>
+                        <p>Direct chat for instant bookings</p>
+                    </div>
+                    <div class="addon-price" style="color: var(--accent);">Included</div>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-info">
+                        <h4>Party/Event Booking Form</h4>
+                        <p>Data directly to your email</p>
+                    </div>
+                    <div class="addon-price">+ ₹3,000</div>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-info">
+                        <h4>Dynamic Photo Gallery</h4>
+                        <p>Masonry grid for food & ambience</p>
+                    </div>
+                    <div class="addon-price">+ ₹4,000</div>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-info">
+                        <h4>Multi-Page Expansion</h4>
+                        <p>About Us, Contact, and Policies</p>
+                    </div>
+                    <div class="addon-price">+ ₹6,000</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="service-whatsapp" class="service-section">
+            <div class="service-header">
+                <h2>Service 2: WhatsApp AI Automation</h2>
+                <p>Automate your customer inquiries, send digital PDF menus instantly, and handle table bookings 24/7 without human intervention.</p>
+            </div>
+            <div class="locked-service">
+                <h3>🤖 Live WhatsApp Bot Demo Uploading Soon...</h3>
+                <p style="color: #666;">Stay tuned for the interactive testing number.</p>
+            </div>
+        </section>
+
+        <section id="service-qr" class="service-section">
+            <div class="service-header">
+                <h2>Service 3: Smart Table-Top QR</h2>
+                <p>Physical premium acrylic QR stands that link directly to your digital storefront, reducing waiter load and improving customer experience.</p>
+            </div>
+            <div class="locked-service">
+                <h3>📱 3D Acrylic QR Mockups Uploading Soon...</h3>
+            </div>
+        </section>
+        
+        <section id="service-crm" class="service-section">
+            <div class="service-header">
+                <h2>Service 4: Custom CRM Dashboard</h2>
+                <p>A fast, Python-based backend admin panel to track reservations, customer data, and walk-in analytics in real-time.</p>
+            </div>
+            <div class="locked-service">
+                <h3>💻 Admin Panel Live Recording Uploading Soon...</h3>
+            </div>
+        </section>
+
+    </div>
+
     <footer>
-        <p>&copy; 2026 GrowDesk Technologies. Empowering Restaurants Globally.</p>
+        <p>&copy; 2026 GrowDesk Technologies. Elevating Restaurant Experiences.</p>
     </footer>
 
 </body>
