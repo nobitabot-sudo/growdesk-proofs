@@ -23,10 +23,7 @@
 
         /* 1. GROWDESK INFO (HERO) */
         .hero { text-align: center; padding: 10vh 20px 8vh; background: radial-gradient(circle at top, #1a1a2e, var(--bg-dark)); border-bottom: 1px solid #222; }
-        
-        /* Fluid typography: auto-scales between 2.5rem (mobile) and 4.5rem (PC) */
         .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; letter-spacing: 2px; background: linear-gradient(to right, #ffffff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; line-height: 1.1; }
-        
         .hero p { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--text-muted); max-width: 700px; margin: 0 auto; padding: 0 10px; }
 
         /* 2. SERVICE INDEX */
@@ -66,6 +63,23 @@
         .addon-info p { color: var(--text-muted); font-size: 0.85rem; }
         .addon-price { color: var(--primary); font-weight: 800; font-size: 1.1rem; }
 
+        /* BOT PRESENTATION CSS */
+        .bot-presentation { background-color: var(--card-bg); border: 1px solid #2a2a35; border-radius: 20px; padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        .bot-content { flex: 1; min-width: 300px; }
+        .bot-content h3 { font-size: clamp(1.8rem, 4vw, 2.2rem); margin-bottom: 15px; color: #fff; }
+        .bot-content p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 25px; }
+        
+        .bot-features { list-style: none; margin-bottom: 35px; color: #ccc; font-size: 1rem; }
+        .bot-features li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4; }
+        .bot-features li strong { color: #fff; font-weight: 600; }
+        
+        .btn-whatsapp { display: inline-flex; align-items: center; justify-content: center; background-color: #25D366; color: #000; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.1rem; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2); transition: 0.3s; }
+        .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
+        
+        .bot-visual { flex: 1; min-width: 300px; text-align: center; position: relative; }
+        .bot-visual img { border-radius: 16px; max-height: 400px; width: 100%; object-fit: cover; opacity: 0.8; border: 2px solid #333; display: block; }
+        .floating-chat { position: absolute; bottom: -20px; left: -20px; background: #fff; color: #000; padding: 15px 20px; border-radius: 15px 15px 15px 0; box-shadow: 0 10px 20px rgba(0,0,0,0.5); text-align: left; font-weight: 600; font-size: 0.9rem; max-width: 280px; line-height: 1.4; }
+
         /* Future Services Placeholder */
         .locked-service { background: repeating-linear-gradient(45deg, #121217, #121217 10px, #1a1a24 10px, #1a1a24 20px); border: 1px dashed #444; padding: 40px 20px; text-align: center; border-radius: 16px; margin-bottom: 30px; opacity: 0.8; }
         .locked-service h3 { color: #fff; margin-bottom: 10px; font-size: clamp(1.2rem, 3vw, 1.5rem); }
@@ -74,13 +88,21 @@
         footer { text-align: center; padding: 40px 20px; color: var(--text-muted); border-top: 1px solid #222; margin-top: 20px; font-size: 0.9rem; }
 
         /* MOBILE SPECIFIC ADJUSTMENTS */
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .service-nav { flex-direction: column; align-items: stretch; padding: 0 10px; }
             .nav-btn { padding: 16px; font-size: 1rem; }
             .service-header { padding-left: 15px; border-left-width: 3px; }
             .addon-card { flex-direction: column; align-items: flex-start; gap: 10px; }
             .addon-price { align-self: flex-start; }
             .container { padding: 40px 15px; }
+
+            /* Fixes for WhatsApp Section */
+            .bot-presentation { padding: 25px 20px; gap: 30px; }
+            .bot-content { min-width: 100%; }
+            .btn-whatsapp { width: 100%; text-align: center; padding: 16px; font-size: 1.05rem; }
+            
+            .bot-visual { min-width: 100%; margin-top: 10px; }
+            .floating-chat { position: relative; bottom: 0; left: 0; margin: -30px auto 0; border-radius: 15px; max-width: 90%; text-align: center; }
         }
     </style>
 </head>
@@ -115,7 +137,7 @@
             
             <div class="theme-grid">
                 <div class="theme-card">
-                    <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="The Essential Menu">
+                    <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="Essential Menu">
                     <div class="card-content">
                         <h3 class="theme-title">The Essential Menu</h3>
                         <p class="theme-desc">Clean, fast, and to-the-point single page scroll. Perfect for quick walk-ins and local cafes.</p>
@@ -127,7 +149,7 @@
                 </div>
 
                 <div class="theme-card">
-                    <img src="https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="The Modern Cafe">
+                    <img src="https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="Modern Cafe">
                     <div class="card-content">
                         <h3 class="theme-title">The Modern Cafe</h3>
                         <p class="theme-desc">Bright aesthetic with pastel colors. Highly Instagrammable design best for aesthetic bakeries.</p>
@@ -139,7 +161,7 @@
                 </div>
 
                 <div class="theme-card">
-                    <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="The Heritage Kitchen">
+                    <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="Heritage Kitchen">
                     <div class="card-content">
                         <h3 class="theme-title">The Heritage Kitchen</h3>
                         <p class="theme-desc">Warm tones and royal typography. Authentic design for traditional diners and family restaurants.</p>
@@ -151,7 +173,7 @@
                 </div>
 
                 <div class="theme-card">
-                    <img src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="The Cinematic Lounge">
+                    <img src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="Cinematic Lounge">
                     <div class="card-content">
                         <h3 class="theme-title">The Cinematic Lounge</h3>
                         <p class="theme-desc">Dark mode, luxury animations, and high-end elegance. Built for fine-dining and premium bars.</p>
@@ -163,7 +185,7 @@
                 </div>
 
                 <div class="theme-card" style="border-color: #ccff00;">
-                    <img src="https://images.pexels.com/photos/3727250/pexels-photo-3727250.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="The Interactive 3D">
+                    <img src="https://images.pexels.com/photos/3727250/pexels-photo-3727250.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="Interactive 3D">
                     <div class="card-content">
                         <h3 class="theme-title">The Interactive 3D</h3>
                         <p class="theme-desc">Horizontal scrolling, floating elements, and modern vibes. For trendy dine-in cloud kitchens.</p>
@@ -209,47 +231,42 @@
         </section>
 
         <!-- SERVICE 2: WHATSAPP BOT -->
-                <!-- SERVICE 2: WHATSAPP BOT -->
         <section id="service-whatsapp" class="service-section">
             <div class="service-header">
                 <h2>Service 2: WhatsApp AI Automation</h2>
                 <p>Don't lose customers when your staff is busy. Automate your inquiries, send digital menus instantly, and handle table bookings 24/7.</p>
             </div>
             
-            <div class="bot-presentation" style="background-color: var(--card-bg); border: 1px solid #2a2a35; border-radius: 20px; padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
-                
+            <div class="bot-presentation">
                 <!-- Left: Text & Features -->
-                <div style="flex: 1; min-width: 300px;">
-                    <h3 style="font-size: 2rem; margin-bottom: 15px; color: #fff;">The Auto-Receptionist 🤖</h3>
-                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px;">
-                        Replace manual replies with a smart WhatsApp system. When a hungry customer texts you, our bot instantly shares your premium website link and books their table seamlessly.
-                    </p>
+                <div class="bot-content">
+                    <h3>The Auto-Receptionist 🤖</h3>
+                    <p>Replace manual replies with a smart WhatsApp system. When a hungry customer texts you, our bot instantly shares your premium website link and books their table seamlessly.</p>
                     
-                    <ul style="list-style: none; margin-bottom: 35px; color: #ccc; font-size: 1.05rem;">
-                        <li style="margin-bottom: 12px;">✅ <strong style="color: #fff;">0 Second Delay:</strong> Instant replies 24/7.</li>
-                        <li style="margin-bottom: 12px;">✅ <strong style="color: #fff;">Smart Routing:</strong> Sends your interactive menu links directly.</li>
-                        <li style="margin-bottom: 12px;">✅ <strong style="color: #fff;">VIP Bookings:</strong> Collects booking data without staff intervention.</li>
+                    <ul class="bot-features">
+                        <li>✅ <div><strong>0 Second Delay:</strong> Instant replies 24/7.</div></li>
+                        <li>✅ <div><strong>Smart Routing:</strong> Sends your interactive menu links directly.</div></li>
+                        <li>✅ <div><strong>VIP Bookings:</strong> Collects booking data without staff intervention.</div></li>
                     </ul>
 
                     <!-- WhatsApp CTA Button -->
-                    <a href="https://wa.me/917975281356?text=Hi%20GrowDesk!%20I%20want%20to%20test%20the%20Restaurant%20Bot%20Demo." target="_blank" style="display: inline-block; background-color: #25D366; color: #000; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.1rem; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); transition: 0.3s;">
+                    <a href="https://wa.me/91XXXXXXXXXX?text=Hi%20GrowDesk!%20I%20want%20to%20test%20the%20Restaurant%20Bot%20Demo." target="_blank" class="btn-whatsapp">
                         💬 Try Live Bot Demo
                     </a>
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 15px;">Click to test it from your own phone right now.</p>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 15px; text-align: center;">Click to test it from your own phone right now.</p>
                 </div>
 
                 <!-- Right: Visual/Mockup -->
-                <div style="flex: 1; min-width: 300px; text-align: center; position: relative;">
-                    <img src="https://images.pexels.com/photos/5053846/pexels-photo-5053846.jpeg?auto=compress&cs=tinysrgb&w=600" alt="WhatsApp Automation" style="border-radius: 16px; max-height: 400px; width: 100%; object-fit: cover; opacity: 0.8; border: 2px solid #333;">
+                <div class="bot-visual">
+                    <img src="https://images.pexels.com/photos/5053846/pexels-photo-5053846.jpeg?auto=compress&cs=tinysrgb&w=600" alt="WhatsApp Automation">
                     
                     <!-- Floating Chat Bubble Simulation -->
-                    <div style="position: absolute; bottom: -20px; left: -20px; background: #fff; color: #000; padding: 15px; border-radius: 15px 15px 15px 0; box-shadow: 0 10px 20px rgba(0,0,0,0.5); text-align: left; max-width: 250px; font-weight: 600; font-size: 0.9rem;">
+                    <div class="floating-chat">
                         "Welcome! Click here to view our menu or type 'BOOK' for a table."
                     </div>
                 </div>
             </div>
         </section>
-
 
         <!-- SERVICE 3: SMART QR -->
         <section id="service-qr" class="service-section">
