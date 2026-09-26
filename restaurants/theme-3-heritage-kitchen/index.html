@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Darbar | Authentic Heritage Kitchen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #c68c36;
+            --bg-maroon: #4a0e17;
+            --bg-cream: #fdfbf7;
+            --text-dark: #3a2618;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            font-family: 'Lora', serif;
+            line-height: 1.6;
+            background-image: radial-gradient(#e8ddcb 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: var(--bg-maroon);
+            color: var(--primary-gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--primary-gold);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .book-btn {
+            background-color: var(--primary-gold);
+            color: var(--bg-maroon);
+            padding: 10px 24px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Cinzel', serif;
+            transition: 0.3s;
+            border: 1px solid var(--primary-gold);
+        }
+
+        .book-btn:hover {
+            background-color: transparent;
+            color: var(--primary-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 75vh;
+            background: linear-gradient(rgba(74, 14, 23, 0.7), rgba(74, 14, 23, 0.8)), url('https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover;
+            text-align: center;
+            padding: 0 20px;
+            border-bottom: 5px solid var(--primary-gold);
+        }
+
+        .hero-content {
+            max-width: 700px;
+            color: var(--bg-cream);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        /* Royal Menu Section */
+        .menu-section {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--bg-maroon);
+            margin-bottom: 15px;
+        }
+
+        .title-divider {
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-gold);
+            margin: 0 auto 40px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .menu-card {
+            background: #fff;
+            border: 1px solid #e8ddcb;
+            padding: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .card-details {
+            padding: 20px 10px 10px;
+        }
+
+        .dish-name {
+            font-size: 1.4rem;
+            color: var(--bg-maroon);
+            margin-bottom: 5px;
+        }
+
+        .dish-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .dish-price {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: var(--primary-gold);
+            font-size: 1.3rem;
+        }
+
+        /* Party Booking Section */
+        .party-booking {
+            background-color: var(--bg-maroon);
+            color: var(--bg-cream);
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 3px solid var(--primary-gold);
+            border-bottom: 3px solid var(--primary-gold);
+        }
+
+        .party-booking h2 {
+            color: var(--primary-gold);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .party-booking p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2a080d;
+            color: var(--primary-gold);
+            text-align: center;
+            padding: 30px 20px;
+            font-family: 'Cinzel', serif;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            header { flex-direction: column; gap: 15px; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Royal Darbar</div>
+        <a href="https://wa.me/917975281356" class="book-btn">Reserve A Table</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The Legacy of Spices</h1>
+            <p>Experience the authentic taste of royal recipes passed down through generations.</p>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <h2 class="section-title">Our Signature Curries</h2>
+        <div class="title-divider"></div>
+        
+        <div class="grid-container">
+            <div class="menu-card">
+                <img src="https://images.pexels.com/photos/12737656/pexels-photo-12737656.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Dum Biryani">
+                <div class="card-details">
+                    <h3 class="dish-name">Shahi Dum Biryani</h3>
+                    <p class="dish-desc">Slow-cooked fragrant basmati rice with exotic spices and tender meat.</p>
+                    <div class="dish-price">₹450</div>
+                </div>
+            </div>
+            
+            <div class="menu-card">
+                <img src="https://images.pexels.com/photos/2456435/pexels-photo-2456435.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Paneer Butter Masala">
+                <div class="card-details">
+                    <h3 class="dish-name">Paneer Makhani</h3>
+                    <p class="dish-desc">Cottage cheese simmered in a rich, creamy tomato and cashew gravy.</p>
+                    <div class="dish-price">₹320</div>
+                </div>
+            </div>
+            
+            <div class="menu-card">
+                <img src="https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Indian Thali">
+                <div class="card-details">
+                    <h3 class="dish-name">Maharaja Thali</h3>
+                    <p class="dish-desc">A grand feast featuring our best curries, breads, and traditional sweets.</p>
+                    <div class="dish-price">₹699</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="party-booking">
+        <h2>Host Your Royal Feast</h2>
+        <p>Planning a family gathering, kitty party, or corporate lunch? Let us serve you with our premium catering and private dining experience.</p>
+        <a href="https://wa.me/917975281356?text=I%20want%20to%20enquire%20about%20party%20bookings" class="book-btn">Enquire for Party Booking</a>
+    </section>
+
+    <footer>
+        <p>100ft Road, Bidar, Karnataka</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: #888;">&copy; 2026 Royal Darbar. Engineered by GrowDesk.</p>
+    </footer>
+
+</body>
+</html>
